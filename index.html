@@ -1,9 +1,12 @@
 <!DOCTYPE html>
 <html lang="pl">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>Jack Russell Terrier – Kompendium Rasy</title>
+
     <style>
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -12,26 +15,63 @@
             margin: 0;
             background-color: #f9f7f2;
         }
+
         header {
             background-color: #2c3e50;
             color: #fff;
             text-align: center;
             padding: 3rem 1rem;
+            position: relative;
         }
+
         header h1 {
             margin: 0;
             font-size: 2.5rem;
         }
+
         header p {
             color: #e67e22;
             font-weight: bold;
             font-size: 1.1rem;
         }
+
+        /* Przełącznik języka */
+
+        .language-switcher {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            display: flex;
+            gap: 0.4rem;
+        }
+
+        .language-switcher button {
+            background: transparent;
+            color: #fff;
+            border: 1px solid rgba(255,255,255,0.5);
+            padding: 0.4rem 0.7rem;
+            border-radius: 6px;
+            cursor: pointer;
+            font-family: inherit;
+            font-size: 0.9rem;
+            transition: all 0.2s ease;
+        }
+
+        .language-switcher button:hover {
+            background-color: rgba(255,255,255,0.1);
+        }
+
+        .language-switcher button.active {
+            background-color: #e67e22;
+            border-color: #e67e22;
+        }
+
         main {
             max-width: 850px;
             margin: 2rem auto;
             padding: 0 1.5rem;
         }
+
         section {
             background: #fff;
             padding: 1.8rem;
@@ -39,26 +79,40 @@
             border-radius: 8px;
             box-shadow: 0 2px 5px rgba(0,0,0,0.05);
         }
+
         .hero-photo {
             width: 100%;
             max-height: 450px;
             object-fit: cover;
             border-radius: 8px;
-            margin-bottom: 1.2rem;
+            margin-bottom: 0.5rem;
             display: block;
         }
+
+        .photo-caption {
+            text-align: center;
+            color: #777;
+            font-size: 0.9rem;
+            font-style: italic;
+            margin-top: 0;
+            margin-bottom: 1.5rem;
+        }
+
         h2 {
             color: #d35400;
             border-bottom: 2px solid #f0e6d2;
             padding-bottom: 0.5rem;
             margin-top: 0;
         }
+
         ul {
             padding-left: 1.2rem;
         }
+
         li {
             margin-bottom: 0.5rem;
         }
+
         .badge {
             display: inline-block;
             background: #e67e22;
@@ -69,52 +123,272 @@
             margin-right: 0.4rem;
             margin-bottom: 0.4rem;
         }
+
         footer {
             text-align: center;
             padding: 1.5rem;
             color: #777;
             font-size: 0.9rem;
         }
+
+        /* Widok mobilny */
+
+        @media (max-width: 600px) {
+
+            header {
+                padding-top: 4.5rem;
+            }
+
+            header h1 {
+                font-size: 2rem;
+            }
+
+            .language-switcher {
+                right: 50%;
+                transform: translateX(50%);
+            }
+
+            main {
+                padding: 0 1rem;
+            }
+
+            section {
+                padding: 1.4rem;
+            }
+        }
     </style>
 </head>
+
 <body>
 
 <header>
+
+    <div class="language-switcher">
+
+        <button
+            id="btn-pl"
+            class="active"
+            type="button"
+            onclick="setLanguage('pl')"
+            aria-label="Zmień język na polski">
+            🇵🇱 PL
+        </button>
+
+        <button
+            id="btn-en"
+            type="button"
+            onclick="setLanguage('en')"
+            aria-label="Change language to English">
+            🇬🇧 EN
+        </button>
+
+    </div>
+
     <h1>Jack Russell Terrier</h1>
-    <p>Wielki charakter w małym ciele</p>
+
+    <p
+        data-pl="Wielki charakter w małym ciele"
+        data-en="A big personality in a small body">
+        Wielki charakter w małym ciele
+    </p>
+
 </header>
 
+
 <main>
+
+    <!-- AYRA / O RASIE -->
+
     <section>
-        <img src="89a1c8ca-1993-4f69-b882-ff9e7686fb65.jpeg" alt="Pies rasy Jack Russell Terrier" class="hero-photo">
-        <h2>O rasie</h2>
-        <p>Jack Russell Terrier to niewielki, niezwykle zwinny pies myśliwski wywodzący się z Anglii. Rasa powstała w XIX wieku dzięki pastorowi Johnowi Russellowi, który hodował psy idealne do polowań na lisy.</p>
+
+        <img
+            src="89a1c8ca-1993-4f69-b882-ff9e7686fb65.jpeg"
+            alt="Ayra – Jack Russell Terrier"
+            class="hero-photo">
+
+        <p
+            class="photo-caption"
+            data-pl="Poznaj Ayrę 🐾"
+            data-en="Meet Ayra 🐾">
+            Poznaj Ayrę 🐾
+        </p>
+
+        <h2
+            data-pl="O rasie"
+            data-en="About the breed">
+            O rasie
+        </h2>
+
+        <p
+            data-pl="Jack Russell Terrier to niewielki, niezwykle zwinny pies myśliwski wywodzący się z Anglii. Rasa powstała w XIX wieku dzięki pastorowi Johnowi Russellowi, który hodował psy idealne do polowań na lisy."
+            data-en="The Jack Russell Terrier is a small, extremely agile hunting dog originating from England. The breed was developed in the 19th century by Reverend John Russell, who bred dogs well suited to fox hunting.">
+            Jack Russell Terrier to niewielki, niezwykle zwinny pies myśliwski
+            wywodzący się z Anglii. Rasa powstała w XIX wieku dzięki pastorowi
+            Johnowi Russellowi, który hodował psy idealne do polowań na lisy.
+        </p>
+
         <div>
-            <span class="badge">Wysokość: 25–30 cm</span>
-            <span class="badge">Waga: 5–6 kg</span>
-            <span class="badge">Długość życia: 13–16 lat</span>
-            <span class="badge">Grupa FCI: III (Teriery)</span>
+
+            <span
+                class="badge"
+                data-pl="Wysokość: 25–30 cm"
+                data-en="Height: 25–30 cm">
+                Wysokość: 25–30 cm
+            </span>
+
+            <span
+                class="badge"
+                data-pl="Waga: 5–6 kg"
+                data-en="Weight: 5–6 kg">
+                Waga: 5–6 kg
+            </span>
+
+            <span
+                class="badge"
+                data-pl="Długość życia: 13–16 lat"
+                data-en="Life expectancy: 13–16 years">
+                Długość życia: 13–16 lat
+            </span>
+
+            <span
+                class="badge"
+                data-pl="Grupa FCI: III (Teriery)"
+                data-en="FCI Group: III (Terriers)">
+                Grupa FCI: III (Teriery)
+            </span>
+
         </div>
+
     </section>
 
+
+    <!-- CHARAKTER -->
+
     <section>
-        <h2>Charakter i temperament</h2>
+
+        <h2
+            data-pl="Charakter i temperament"
+            data-en="Character & temperament">
+            Charakter i temperament
+        </h2>
+
         <ul>
-            <li><strong>Niespożyta energia:</strong> To pies stworzony do ruchu, długich spacerów, biegania i psich sportów (np. agility).</li>
-            <li><strong>Wysoka inteligencja:</strong> Szybko się uczy, ale wymaga konsekwentnego wychowania i stymulacji umysłowej (zabawki węchowe, sztuczki).</li>
-            <li><strong>Odwaga i czujność:</strong> Jako terier jest pewny siebie, odważny i bardzo przywiązany do swojego opiekuna.</li>
+
+            <li
+                data-pl="<strong>Niespożyta energia:</strong> To pies stworzony do ruchu, długich spacerów, biegania i psich sportów (np. agility)."
+                data-en="<strong>Endless energy:</strong> This dog loves movement, long walks, running and dog sports such as agility.">
+                <strong>Niespożyta energia:</strong>
+                To pies stworzony do ruchu, długich spacerów,
+                biegania i psich sportów (np. agility).
+            </li>
+
+            <li
+                data-pl="<strong>Wysoka inteligencja:</strong> Szybko się uczy, ale wymaga konsekwentnego wychowania i stymulacji umysłowej (zabawki węchowe, sztuczki)."
+                data-en="<strong>High intelligence:</strong> Jack Russells learn quickly but need consistent training and plenty of mental stimulation, such as scent games and tricks.">
+                <strong>Wysoka inteligencja:</strong>
+                Szybko się uczy, ale wymaga konsekwentnego wychowania
+                i stymulacji umysłowej (zabawki węchowe, sztuczki).
+            </li>
+
+            <li
+                data-pl="<strong>Odwaga i czujność:</strong> Jako terier jest pewny siebie, odważny i bardzo przywiązany do swojego opiekuna."
+                data-en="<strong>Courage and alertness:</strong> As a terrier, the Jack Russell is confident, courageous and strongly attached to its owner.">
+                <strong>Odwaga i czujność:</strong>
+                Jako terier jest pewny siebie, odważny i bardzo
+                przywiązany do swojego opiekuna.
+            </li>
+
         </ul>
+
     </section>
 
+
+    <!-- PIELĘGNACJA -->
+
     <section>
-        <h2>Pielęgnacja i rodzaje sierści</h2>
-        <p>Występują trzy odmiany szaty: <strong>gładkowłosa, szorstkowłosa oraz złamana (broken)</strong>. Sierść jest łatwa w utrzymaniu – wymaga regularnego wyczesywania, a w przypadku odmian szorstkowłosych także okresowego trymowania.</p>
+
+        <h2
+            data-pl="Pielęgnacja i rodzaje sierści"
+            data-en="Grooming & coat types">
+            Pielęgnacja i rodzaje sierści
+        </h2>
+
+        <p
+            data-pl="Występują trzy odmiany szaty: <strong>gładkowłosa, szorstkowłosa oraz złamana (broken)</strong>. Sierść jest łatwa w utrzymaniu – wymaga regularnego wyczesywania, a w przypadku odmian szorstkowłosych także okresowego trymowania."
+            data-en="There are three coat types: <strong>smooth, rough and broken</strong>. The coat is relatively easy to maintain and requires regular brushing. Rough-coated Jack Russells may also require periodic hand stripping.">
+            Występują trzy odmiany szaty:
+            <strong>gładkowłosa, szorstkowłosa oraz złamana (broken)</strong>.
+            Sierść jest łatwa w utrzymaniu – wymaga regularnego wyczesywania,
+            a w przypadku odmian szorstkowłosych także okresowego trymowania.
+        </p>
+
     </section>
+
 </main>
 
+
 <footer>
-    <p>Strona o rasie Jack Russell Terrier • Autor: Rafał Nowak • Zdjęcia: Martyna Nowak </p>
+
+    <p
+        data-pl="Strona o rasie Jack Russell Terrier • Autor: Rafał Nowak • Zdjęcia: Martyna Nowak"
+        data-en="A website about the Jack Russell Terrier • Author: Rafał Nowak • Photos: Martyna Nowak">
+        Strona o rasie Jack Russell Terrier • Autor: Rafał Nowak • Zdjęcia: Martyna Nowak
+    </p>
+
 </footer>
+
+
+<script>
+
+    function setLanguage(language) {
+
+        const elements = document.querySelectorAll('[data-pl][data-en]');
+
+        elements.forEach(element => {
+            element.innerHTML = element.dataset[language];
+        });
+
+        // Zmiana języka dokumentu
+        document.documentElement.lang = language;
+
+        // Zmiana tytułu karty przeglądarki
+        if (language === 'pl') {
+            document.title = 'Jack Russell Terrier – Kompendium Rasy';
+        } else {
+            document.title = 'Jack Russell Terrier – Breed Guide';
+        }
+
+        // Stan przycisków PL / EN
+        document
+            .getElementById('btn-pl')
+            .classList.toggle('active', language === 'pl');
+
+        document
+            .getElementById('btn-en')
+            .classList.toggle('active', language === 'en');
+
+        // Dostępność
+        document
+            .getElementById('btn-pl')
+            .setAttribute('aria-pressed', language === 'pl');
+
+        document
+            .getElementById('btn-en')
+            .setAttribute('aria-pressed', language === 'en');
+
+        // Zapamiętanie języka
+        localStorage.setItem('language', language);
+    }
+
+
+    // Przywrócenie języka z poprzedniej wizyty
+    const savedLanguage = localStorage.getItem('language');
+
+    if (savedLanguage === 'pl' || savedLanguage === 'en') {
+        setLanguage(savedLanguage);
+    }
+
+</script>
 
 </body>
 </html>
